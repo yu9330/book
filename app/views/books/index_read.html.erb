@@ -1,0 +1,10 @@
+<h1>既読の本一覧</h1>
+<% @books.each do |book| %>
+  <p><%= book.title %></p>
+  <p><%= book.pabulisher %></p>
+  <p><%= book.author %></p>
+  <p><%= book.reviw %></p>
+  <p><%= book.start_date %></p>
+  <p><%= book.end_date %></p>
+<% end %>
+<!--Find me in app/views/books/index_read.html.erb-->

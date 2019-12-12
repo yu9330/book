@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  pabulisher: MyString
+  author: MyString
+  reviw: MyString
+  start_date: 2019-12-11
+  end_date: 2019-12-11
+  status: MyString
+
+two:
+  title: MyString
+  pabulisher: MyString
+  author: MyString
+  reviw: MyString
+  start_date: 2019-12-11
+  end_date: 2019-12-11
+  status: MyString
