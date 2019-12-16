@@ -8,8 +8,6 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
 
-  get 'books'
-
   get 'books/new'
 
   get 'books/index_unread'
