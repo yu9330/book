@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  get 'users/:id' => "users#show",as: "users_show"
 
   devise_for :users, only: [:show]
 
