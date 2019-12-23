@@ -1,10 +1,11 @@
 <h1>既読の本一覧</h1>
+<hr>
 <% @books.each do |book| %>
-  <p><%= book.title %></p>
-  <p><%= book.pabulisher %></p>
-  <p><%= book.author %></p>
-  <p><%= book.reviw %></p>
-  <p><%= book.start_date %></p>
-  <p><%= book.end_date %></p>
+タイトル：<%= book.title%><br>
+<hr>
+<% end%>
+
+<% if !signed_in? %>
+<%= link_to "自分も作ってみる", new_user_registration_path %>
 <% end %>
 <!--Find me in app/views/books/index_read.html.erb-->

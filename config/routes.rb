@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/:id' => "users#show",as: "users_show"
+
+  root "books#index_read"
+
 
   devise_for :users, only: [:show]
 
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }
+
+  get 'users/:id' => "users#show",as: "users_show"
 
   get 'books/new'
 

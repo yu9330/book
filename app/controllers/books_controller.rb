@@ -1,8 +1,12 @@
 class BooksController < ApplicationController
+
+  before_action :authenticate_user!
+
   def new
   end
 
   def create
+
     @book = Book.new
     @book.title = params[:book][:title]
     @book.pabulisher = params[:book][:pabulisher]
@@ -11,6 +15,9 @@ class BooksController < ApplicationController
     @book.start_date = params[:book][:start_date]
     @book.end_date = params[:book][:end_date]
     @book.status = params[:book][:status]
+
+    @book.save
+
     redirect_to '/books/index_read'
   end
 
@@ -21,4 +28,8 @@ class BooksController < ApplicationController
   def index_read
     @books = Book.all
   end
+
+  def show
+  end
+
 end

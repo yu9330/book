@@ -1,28 +1,42 @@
 <h1>本の登録</h1>
 <!-- Find me in app/views/books/new.html.erb -->
 <%= form_for Book.new do |f| %>
+<div class="form-group">
   <%= f.label :title,"タイトル" %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title , class: "form-control",required: true%>
+</div>
 
+<div class="form-group">
   <%= f.label :pabulisher,"出版社" %>
-  <%= f.text_field :pabulisher %>
+  <%= f.text_field :pabulisher , class: "form-control",required: true%>
+</div>
 
+<div class="form-group">
   <%= f.label :author,"作者・著者" %>
-  <%= f.text_field :author %>
+  <%= f.text_field :author , class: "form-control",required: true%>
+</div>
 
+<div class="form-group">
   <%= f.label :reviw,"感想" %>
-  <%= f.text_area :reviw %>
+  <%= f.text_area :reviw , class: "form-control",required: true%>
+</div>
 
+<div class="form-group">
   <%= f.label :start_date,"読み始めた" %>
-  <%= f.text_field :start_date %>
+  <%= f.date_field :start_date , class: "form-control",required: true%>
+</div>
 
+<div class="form-group">
   <%= f.label :end_date,"読み終わった" %>
-  <%= f.text_field :end_date %>
+  <%= f.date_field :end_date , class: "form-control",required: true%>
+</div>
 
+<div class="form-group">
   <%= f.radio_button :status, :read %>
   <%= f.label :status,"既読",{value: :read, style: "display: inline-block;"} %>
   <%= f.radio_button :status, :unread %>
   <%= f.label :status,"未読",{value: :unread, style: "display: inline-block;"} %>
+</div>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>

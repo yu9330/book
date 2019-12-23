@@ -1,4 +1,22 @@
-<h1>Users#show</h1>
+
+<h1><%= @user.name %>さんのページ</h1>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
+<p><%= link_to "本登録", books_new_path %></p>
+
+<h2>本の一覧</h2>
+<hr>
+<% @books.each do |book| %>
+タイトル：<%= book.title%><br>
+<hr>
+<% end%>
+
+<% if !signed_in? %>
+<%= link_to "自分も作ってみる", new_user_registration_path %>
+<% end %>
+
+<!-- ツイッターに宣伝 -->
+<%= link_to @tweet_url,:onclick=>"window.open(this.href,'hoge', 'height=400, width=600');return false;" do %>
+<div style="background-color:#1da1f2;color:#ffffff;line-height:38px;text-align:center;padding: 0 16px;margin: 15px 10px;border-radius:10px;"><i class="fa fa-twitter"></i> みんなに宣伝</div>
+   <% end %>
 <!-- Find me in app/views/users/show.html.erb -->
