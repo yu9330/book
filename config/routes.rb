@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
 
+
   get 'users/:id' => "users#show",as: "users_show"
 
   get 'books/new'
