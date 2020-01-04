@@ -1,2 +1,11 @@
-<h1>Books#index_unread</h1>
+<!-- /header -->
+<header class="header">
+  <%= link_to "読ぽん",books_index_read_path %>
+</header>
+
+<h1>未読の本</h1>
+
+
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
 <p>Find me in app/views/books/index_unread.html.erb</p>

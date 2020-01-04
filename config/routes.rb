@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  root "books#index_read"
+  get "/" => "books#index_read"
 
-  devise_for :users, only: [:show]
+ # devise_for :users, only: [:show]
 
-# ログイン、アカウント編集後、任意のページに推移させるための記述
+ # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: {
       registrations: 'users/registrations'
   }

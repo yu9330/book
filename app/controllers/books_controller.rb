@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!,except: [:index_read]
 
   def new
   end
@@ -30,6 +30,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
 end
