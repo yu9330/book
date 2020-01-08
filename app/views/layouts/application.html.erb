@@ -14,7 +14,13 @@
 
   <body>
     <div class="container">
+      <header class="alert alert-warning">
+        <%= link_to "読ぽん",index_read_books_path %>
+      </header>
     <%= yield %>
+    <footer class="alert alert-warning">
+      <%= link_to "読ぽん",index_read_books_path %>
+    </footer>
   </div>
   </body>
 </html>

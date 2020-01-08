@@ -12,13 +12,14 @@ Rails.application.routes.draw do
 
   get 'users/:id' => "users#show",as: "users_show"
 
-  get 'books/new'
+  resources :books, except: [:index,:show] do collection do
+    get "index_unread"
+    get "index_read"
+      end
+    end
 
-  get 'books/index_unread'
-
-  get 'books/index_read'
-
-  post "books" => "books#create"
+ # get 'books/new'
+ # post "books" => "books#create"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

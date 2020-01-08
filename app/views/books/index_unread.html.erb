@@ -1,25 +1,18 @@
-<!-- /header -->
-<header class="alert alert-primary">
-  <%= link_to "読ぽん",books_index_read_path %>
-</header>
-
 <h1>未読の本</h1>
 <% @books.each do |book| %>
 タイトル：<%= book.title%>
 出版社：<%= book.pabulisher %>
+<%= link_to "編集", edit_book_path(book) %>
 <br>
 <% end %>
 <hr>
 
 
 <% if signed_in? %>
+<%= link_to "既読の本", index_read_books_path %>
+<%= link_to "未読の本",index_unread_books_path %>
 <%= link_to "マイページ",users_show_path(current_user.id) %>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% end %>
-
 <hr>
-<footer class="footer">
-  <%= link_to "読ぽん",books_index_read_path %>
-</footer>
-
 <!--p>Find me in app/views/books/index_unread.html.erb</p -->

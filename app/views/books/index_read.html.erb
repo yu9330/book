@@ -1,25 +1,21 @@
-<!-- /header -->
-<header class="alert alert-warning">
-  <%= link_to "読ぽん",books_index_read_path %>
-</header>
-
-
 <h1>既読の本一覧</h1>
 <hr>
 <% @books.each do |book| %>
 タイトル：<%= book.title%>
 出版社：<%= book.pabulisher %>
-<br>
+<%= link_to "編集", edit_book_path(book) %>
+<hr>
 <% end %>
 <hr>
-
+<ul class = "nav nav-pills">
 <% if !signed_in? %>
-<%= link_to "自分も作ってみる", new_user_registration_path %><br>
-<%= link_to "ログイン",user_session_path %>
+<li class = "nav-item"><%= link_to "自分も作ってみる", new_user_registration_path %></li>
+<li class = "nav-item"><%= link_to "ログイン",user_session_path %></li>
 <% else %>
-<%= link_to "マイページ",users_show_path(current_user.id) %>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<li class = "nav-item"><%= link_to "マイページ",users_show_path(current_user.id) %></li>
+<li class = "nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 <% end %>
+</ul>
 
 <!-- ツイッターに宣伝 -->
 <%= link_to @tweet_url,:onclick=>"window.open(this.href,'hoge', 'height=400, width=600');return false;" do %>
@@ -31,7 +27,4 @@
 
 <hr>
 <footer class="footer">
-  <%= link_to "読ぽん",books_index_read_path %>
-</footer>
-
 <!--Find me in app/views/books/index_read.html.erb-->

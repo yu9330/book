@@ -1,3 +1,8 @@
+<!-- /header -->
+<header class="alert alert-primary">
+  <%= link_to "読ぽん",books_index_read_path %>
+</header>
+
 <h1>本の登録</h1>
 <!-- Find me in app/views/books/new.html.erb -->
 <%= form_for @book do |f| %>
@@ -40,10 +45,16 @@
     <%= f.label :status,"未読",{value: :unread, style: "display: inline-block;"} %>
   </div>
 
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit "更新" ,class: "btn btn-primary" %>
 <% end %>
 
 <% if signed_in? %>
   <%= link_to "マイページ",users_show_path(current_user.id) %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% end %>
+
+<hr>
+<footer class="footer">
+  <%= link_to "読ぽん"index_read_books_path %>
+</footer>
+
