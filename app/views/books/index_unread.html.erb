@@ -1,7 +1,7 @@
 <h1>未読の本</h1>
 <% @books.each do |book| %>
 タイトル：<%= book.title%>
-出版社：<%= book.pabulisher %>
+出版社：<%= book.publisher %>
 <%= link_to "編集", edit_book_path(book) %>
 <br>
 <% end %>

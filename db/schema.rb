@@ -14,12 +14,13 @@ ActiveRecord::Schema.define(version: 20191212071016) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.string "pabulisher"
+    t.string "publisher"
     t.string "author"
-    t.string "reviw"
+    t.string "review"
     t.date "start_date"
     t.date "end_date"
     t.string "status"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
