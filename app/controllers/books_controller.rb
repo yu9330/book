@@ -18,14 +18,14 @@ class BooksController < ApplicationController
   end
 
   def index_unread
-    @books = Book.where(status: "unread" ,user_id: current_user.id)
+    render :partial => "index.html.erb",:collection=>Book.where(status: "unread" ,user_id: current_user.id)
   end
 
   def index_read
     if signed_in?
-      @books = Book.where(status: "read",user_id: current_user.id)
+      render :partial => "index.html.erb",:collection =>Book.where(status: "read",user_id: current_user.id)
     else
-      @books = Book.where(status: "read")
+      render :partial => "index.html.erb",:collection => Book.where(status: "read")
     end
   end
 

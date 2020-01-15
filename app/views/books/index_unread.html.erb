@@ -1,13 +1,6 @@
 <h1>未読の本</h1>
-<% @books.each do |book| %>
-タイトル：<%= book.title%>
-出版社：<%= book.publisher %>
-<%= link_to "編集", edit_book_path(book) %>
-<br>
-<% end %>
+
 <hr>
-
-
 <% if signed_in? %>
 <%= link_to "既読の本", index_read_books_path %>
 <%= link_to "未読の本",index_unread_books_path %>

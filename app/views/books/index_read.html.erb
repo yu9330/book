@@ -1,8 +1,6 @@
 <h1>既読の本一覧</h1>
 <hr>
 <% @books.each do |book| %>
-タイトル：<%= book.title%>
-出版社：<%= book.publisher %>
 <%= link_to "編集", edit_book_path(book) %>
 <hr>
 <% end %>
@@ -24,7 +22,4 @@
     みんなに宣伝
   </div>
 <% end %>
-
-<hr>
-<footer class="footer">
 <!--Find me in app/views/books/index_read.html.erb-->
