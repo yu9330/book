@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     if signed_in?
       render :partial => "index.html.erb",:collection =>Book.where(status: "read",user_id: current_user.id)
     else
-      render :partial => "index.html.erb",:collection => Book.where(status: "read")
+      @book = Book.where(status: "read")
     end
   end
 
