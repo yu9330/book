@@ -1,8 +1,10 @@
 <h1>既読の本一覧</h1>
 <hr>
+
 <% @books.each do |book| %>
-<%= link_to "編集", edit_book_path(book) %>
-<hr>
+<%= render 'index', book: book %>
+<%= render 'index', book: @book %>
+
 <% end %>
 <hr>
 <ul class = "nav nav-pills">

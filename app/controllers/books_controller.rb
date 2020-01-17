@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   end
 
   def index_unread
-    render :partial => "index.html.erb",:collection=>Book.where(status: "unread" ,user_id: current_user.id)
+    @book = Book.where(status: "unread" ,user_id: current_user.id)
   end
 
   def index_read
