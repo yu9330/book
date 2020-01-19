@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def show
+    flash.now[:notice] = "ログイン中"
+    flash.discard(:notice)
     @user = User.find(params[:id])
     @books = Book.all
     @tweet_url = URI.encode(

@@ -1,15 +1,22 @@
 <h1>既読の本一覧</h1>
 <hr>
-<%= render 'index', book: book %>
-<%= render 'index', book: @book %>
+<%= render 'index',book: @book %>
 <hr>
 <ul class = "nav nav-pills">
 <% if !signed_in? %>
-<li class = "nav-item"><%= link_to "自分も作ってみる", new_user_registration_path %></li>
-<li class = "nav-item"><%= link_to "ログイン",user_session_path %></li>
-<% else %>
-<li class = "nav-item"><%= link_to "マイページ",users_show_path(current_user.id) %></li>
-<li class = "nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+  <button type="button" class="btn btn-light">
+    <%= link_to "自分も作ってみる", new_user_registration_path %>
+  </button>
+  <button type="button" class="btn btn-light">
+    <%= link_to "ログイン",user_session_path %>
+  </button>
+  <% else %>
+  <li class = "nav-item">
+    <%= link_to "マイページ",users_show_path(current_user.id) %>
+  </li>
+  <li class = "nav-item">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  </li>
 <% end %>
 </ul>
 

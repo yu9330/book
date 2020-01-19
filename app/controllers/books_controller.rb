@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   def create
 
-    @book = Book.new(book_params)
+    @books = Book.new(book_params)
 
     if @book.save
       redirect_to "/books/index_read"
@@ -23,7 +23,7 @@ class BooksController < ApplicationController
 
   def index_read
     if signed_in?
-      render :partial => "index.html.erb",:collection =>Book.where(status: "read",user_id: current_user.id)
+      @book = Book.where(status: "read",user_id: current_user.id)
     else
       @book = Book.where(status: "read")
     end

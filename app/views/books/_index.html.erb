@@ -1,9 +1,8 @@
-<div style="background-color: #90ee90; border: 1px solid black; padding: 1em; margin: 1em;">
-  <% @books.each do |book| %>
-  <p>タイトル：<%= book.title%></p>
-  <%= link_to "編集", edit_book_path(book) %>
-  <% end %>
-<hr>
-  <hr>
+<div>
+<% @book.each do |book| %>
+  <p>タイトル：<%= book.title%>
+    <% if signed_in? %>
+      <%= link_to "編集", edit_book_path(book) %>
+    <% end %></p>
+<% end %>
 </div>
-

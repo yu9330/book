@@ -1,8 +1,6 @@
 <h1>未読の本</h1>
-  <%= render 'index', book: book %>
-  <%= render 'index', book: @book %>
-  <% @books.each do |book| %>
-  <% end %>
+<hr>
+<%= render 'index',book: @book %>
 <hr>
 <% if signed_in? %>
 <%= link_to "既読の本", index_read_books_path %>
