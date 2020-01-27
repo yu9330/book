@@ -1,5 +1,5 @@
 <div>
-<% @book.each do |book| %>
+<% @books.each do |book| %>
   <p>タイトル：<%= book.title%>
     <% if signed_in? %>
       <%= link_to "編集", edit_book_path(book) %>

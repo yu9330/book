@@ -1,6 +1,6 @@
 <h1>未読の本</h1>
 <hr>
-<%= render 'index',book: @book %>
+<%= render 'index',books: @books %>
 <hr>
 <% if signed_in? %>
 <%= link_to "既読の本", index_read_books_path %>

@@ -8,24 +8,24 @@ class BooksController < ApplicationController
 
   def create
 
-    @books = Book.new(book_params)
+    @book = Book.new(book_params)
 
     if @book.save
-      redirect_to "/books/index_read"
+      redirect_to "/books/index_read", flash:{success: 投稿が完了しました。}
     else
       render :new
     end
   end
 
   def index_unread
-    @book = Book.where(status: "unread" ,user_id: current_user.id)
+    @books = Book.where(status: "unread" ,user_id: current_user.id)
   end
 
   def index_read
     if signed_in?
-      @book = Book.where(status: "read",user_id: current_user.id)
+      @books = Book.where(status: "read",user_id: current_user.id)
     else
-      @book = Book.where(status: "read")
+      @books = Book.where(status: "read")
     end
   end
 

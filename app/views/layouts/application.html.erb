@@ -8,19 +8,46 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
   </head>
 
   <body>
-    <div class="container">
-      <header class="alert alert-dismissible alert-primary">
-        <%= link_to image_tag('/rogo1.png'),index_read_books_path %>
-      </header>
-    <%= yield %>
-    <footer class="alert alert-dismissible alert-primary">
-      <%= link_to image_tag('/rogo1.png'),index_read_books_path %>
-    </footer>
+    <% flash.each do|message_type,message| %>
+    <div class="alert alert-<%= message_type %> akert-dismissible" role="alert" id="alertade" style="position: abusolute z-index:100;">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <%= message %>
+    </div>
+    <% end %>
+    <div id="wrapper">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light shadow">
+    <%= link_to image_tag('/rogo1.png',size: 12*10),index_read_books_path, class: "navbar-brand" %>
+    <h1>読ぽん〜Dokupon〜</h1><br>
+    <% if signed_in? %>
+    <h2><%= @user.name %>さんのページ</h2>
+    <% end %>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <% if !signed_in? %>
+      <p class="nav-item ml-auto"><%= link_to "本一覧",index_read_books_path %></li>
+      <p class="nav-item ml-auto"><%= link_to "ログイン",user_session_path %></li>
+      <p class="nav-item ml-auto"><%= link_to "自分も作ってみる", new_user_registration_path %>
+      <% else %>
+     <p class="nav-item ml-auto"><%= link_to "本登録", new_book_path %></p>
+      <p class="nav-item ml-auto"><%= link_to "既読の本", index_read_books_path %></p>
+      <p class="nav-item ml-auto"><%= link_to "未読の本",index_unread_books_path %></p>
+      <p class="nav-item ml-auto"><%= link_to "マイページ",users_show_path(current_user.id) %></p>
+      <p class="nav-item ml-auto"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+      <% end %>
   </div>
+</nav>
+    <%= yield %>
+  </div>
+    <footer>
+      <small class="text-muted">Copyright&#169: 2020 読ぽん</small>
+    </footer>
   </body>
 </html>
+

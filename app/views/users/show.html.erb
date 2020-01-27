@@ -1,19 +1,17 @@
-<p class="alert alert-dismissible alert-primarys"><%= notice %><button type="button" class="close" data-dismiss="alert">&times;</button></p>
-<h1><%= @user.name %>さんのページ</h1>
-<hr>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p><%= link_to "本登録", new_book_path %></p>
 
 <h2>本の一覧</h2>
-<p><%= link_to "既読の本", index_read_books_path %>
-  <%= link_to "未読の本",index_unread_books_path %>
-</p>
 <hr>
 <% @books.each do |book| %>
-タイトル：<%= book.title%><br>
-<hr>
-<% end%>
+  <p>タイトル：<%= book.title%>
+    <% if signed_in? %>
+      <%= link_to "編集", edit_book_path(book) %>
+  </p>
+    <% end %>
+<% end %>
+
 
 <% if !signed_in? %>
 <%= link_to "自分も作ってみる", new_user_registration_path %>
@@ -23,7 +21,9 @@
 
 <!-- ツイッターに宣伝 -->
 <%= link_to @tweet_url,:onclick=>"window.open(this.href,'hoge', 'height=400, width=600');return false;" do %>
-<div style="background-color:#1da1f2;color:#ffffff;line-height:38px;text-align:center;padding: 0 16px;margin: 15px 10px;border-radius:10px;><i class="fa fa-twitter"></i> みんなに宣伝</div>
-   <% end %>
-   <hr>
+  <div style="background-color:#1da1f2;color:#ffffff;line-height:38px;text-align:center;padding: 0 16px;margin: 15px 10px;border-radius:10px;">
+    <i class="fab fa-twitter"></i>
+    みんなに宣伝
+  </div>
+<% end %>
 <!-- Find me in app/views/users/show.html.erb -->
