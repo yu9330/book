@@ -4,9 +4,16 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    if signed_in?
+      @user = User.where(user_id: current_user.id)
+    end
   end
 
   def create
+
+    if signed_in?
+      @user = User.where(user_id: current_user.id)
+    end
 
     @book = Book.new(book_params)
 
