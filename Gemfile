@@ -54,6 +54,9 @@ end
 # Devise
 gem 'devise'
 
+# ratyrate 星形評価実装
+gem 'ratyrate'
+
 # Boot4
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'

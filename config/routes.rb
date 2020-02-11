@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   get "/" => "books#index_read"
 
  # devise_for :users, only: [:show]
