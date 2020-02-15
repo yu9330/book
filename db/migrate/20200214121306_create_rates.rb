@@ -8,7 +8,9 @@ class CreateRates < ActiveRecord::Migration
         t.string :dimension
         t.timestamps
       end
- :rates, [:rateable_id, :rateable_type]
+
+      add_index :rates, :rater_id
+      add_index :rates, [:rateable_id, :rateable_type]
     end
 
     def self.down

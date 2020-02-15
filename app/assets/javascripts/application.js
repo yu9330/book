@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require juery.raty
+//= require jquery.raty
 //= require ratyrate
 //= require rails-ujs
 //= require turbolinks
