@@ -22,10 +22,10 @@
     <% end %>
     <div id="wrapper">
     <nav class="navbar navbar-expand-sm navbar-light bg-light shadow">
-    <%= link_to image_tag('/bookfavicon.png',size: 12*10),index_read_books_path, class: "navbar-brand" %>
+    <%= link_to image_tag('/bookfavicon.png',size: 5*8),index_read_books_path, class: "navbar-brand" %>
     <h1>読ぽん〜Dokupon〜</h1><br>
     <% if signed_in? %>
-    <p><%= @user.name %>さんのページ</p>
+      <p><%= @user.name %>さんのページ</p>
     <% end %>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>

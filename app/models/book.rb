@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
   belongs_to :user
-  ratyrate_rateable "hosi"
+  ratyrate_rateable "stars"
 end

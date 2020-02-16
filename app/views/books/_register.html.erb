@@ -15,8 +15,9 @@
     <%= f.label :author,"作者・著者" %>
     <%= f.text_field :author , class: "form-control",required: true%>
   </div>
-
-  <p>おすすめ度:<%= rating_for @book,'hosi' %></p>
+  <div class="form-group">
+    <p>おすすめ度:<%= rating_for @book,'stars' %></p>
+  </div>
 
   <div class="form-group">
     <%= f.label :review,"感想" %>
