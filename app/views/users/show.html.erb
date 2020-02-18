@@ -12,6 +12,7 @@
     <% end %>
 <% end %>
 
+<%= render 'relationships/foloow_button',user: @user %>
 
 <% if !signed_in? %>
 <%= link_to "自分も作ってみる", new_user_registration_path %>
