@@ -25,7 +25,7 @@
     <%= link_to image_tag('/bookfavicon.png',size: 5*8),index_read_books_path, class: "navbar-brand" %>
     <h1>読ぽん〜Dokupon〜</h1><br>
     <% if signed_in? %>
-      <p><%= @user.name %>さんのページ</p>
+      <p><%= current_user.name %>さんのページ</p>
     <% end %>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
     <span class="navbar-toggler-icon"></span>
@@ -38,8 +38,8 @@
       <p class="nav-item ml-auto"><%= link_to "自分も作ってみる", new_user_registration_path %>
       <% else %>
      <p class="nav-item ml-auto"><%= link_to "本登録", new_book_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "既読の本", index_read_books_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "未読の本",index_unread_books_path %></p>
+      <p class="nav-item ml-auto"><%= link_to "既読", index_read_books_path %></p>
+      <p class="nav-item ml-auto"><%= link_to "未読",index_unread_books_path %></p>
       <p class="nav-item ml-auto"><%= link_to "マイページ",users_show_path(current_user.id) %></p>
       <p class="nav-item ml-auto"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
       <% end %>

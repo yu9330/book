@@ -9,10 +9,9 @@
     <% if signed_in? %>
       <%= link_to "編集", edit_book_path(book) %>
   </p>
+  <p>投稿日:<%= book.created_at.strftime("%Y-%m-%d %H:%M") %></p>
     <% end %>
 <% end %>
-
-<%= render 'relationships/foloow_button',user: @user %>
 
 <% if !signed_in? %>
 <%= link_to "自分も作ってみる", new_user_registration_path %>

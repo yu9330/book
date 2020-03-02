@@ -15,8 +15,20 @@
     <%= f.label :author,"作者・著者" %>
     <%= f.text_field :author , class: "form-control",required: true%>
   </div>
+
   <div class="form-group">
-    <p>おすすめ度:<%= rating_for @book,'stars' %></p>
+    <p>おすすめ：<%= form.hidden_field :rating, id: :book_rating %>
+      <div id='star-rating'>
+      <script>
+        $('#star-rating').raty({
+          path: '/assets/',
+          click: function(score, e) {
+        $("#book_rating").val(score)
+        }
+        });
+      </script>
+      </div>
+    </p>
   </div>
 
   <div class="form-group">
