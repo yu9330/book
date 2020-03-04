@@ -21,6 +21,7 @@ class BooksController < ApplicationController
       flash[:success] = "登録完了しました"
       redirect_to "/books/index_read"
     else
+      flash[:danger] = "登録をやり直してください"
       render :new
     end
   end
@@ -45,8 +46,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if book.update(book_params)
       if book_params[:status] == "read"
+        flash[:success] = "再編集、完了"
         redirect_to index_read_books_path
       elsif book_params[:status] == "unread"
+        flash[:denger] = "再編集に失敗しました"
         redirect_to index_unread_books_path
       end
     else

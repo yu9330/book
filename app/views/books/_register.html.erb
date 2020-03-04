@@ -17,21 +17,6 @@
   </div>
 
   <div class="form-group">
-    <p>おすすめ：<%= form.hidden_field :rating, id: :book_rating %>
-      <div id='star-rating'>
-      <script>
-        $('#star-rating').raty({
-          path: '/assets/',
-          click: function(score, e) {
-        $("#book_rating").val(score)
-        }
-        });
-      </script>
-      </div>
-    </p>
-  </div>
-
-  <div class="form-group">
     <%= f.label :review,"感想" %>
     <%= f.text_area :review , class: "form-control",required: true%>
   </div>

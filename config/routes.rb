@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
+  # get 'faborites/create'
+
+  # get 'faborites/destroy'
+
   post '/rate' => 'rater#create', :as => 'rate'
   get "/" => "books#index_read"
 
@@ -10,6 +18,10 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
   }
 
+  resources :books do
+    resources :favorites,only: [:create,:destroy]
+  end
+
 
   get 'users/:id' => "users#show",as: "users_show"
 
@@ -19,7 +31,7 @@ Rails.application.routes.draw do
       end
     end
 
-  resources :relationships,only: [:create, :destroy]
+  resources :users
 
  # get 'books/new'
  # post "books" => "books#create"

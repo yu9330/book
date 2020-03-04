@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200227121430) do
+ActiveRecord::Schema.define(version: 20200304050821) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20200227121430) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "overall_averages", force: :cascade do |t|
     t.string "rateable_type"
     t.integer "rateable_id"
@@ -43,18 +50,6 @@ ActiveRecord::Schema.define(version: 20200227121430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["rateable_type", "rateable_id"], name: "index_overall_averages_on_rateable_type_and_rateable_id"
-  end
-
-  create_table "rates", force: :cascade do |t|
-    t.integer "rater_id"
-    t.string "rateable_type"
-    t.integer "rateable_id"
-    t.float "stars", null: false
-    t.string "dimension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_rates_on_rateable_type_and_rateable_id"
-    t.index ["rater_id"], name: "index_rates_on_rater_id"
   end
 
   create_table "rating_caches", force: :cascade do |t|
