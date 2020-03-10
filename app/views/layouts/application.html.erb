@@ -14,7 +14,6 @@
   </head>
 
   <body>
-    <div class="container">
     <% flash.each do|message_type,message| %>
     <div class="alert alert-<%= message_type %> akert-dismissible" role="alert" id="alertade" style="position: abusolute z-index:100;">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -46,12 +45,13 @@
       <% end %>
     </div>
     </nav>
+    <div class="container">
     <%= yield %>
+    </div>
   </div>
     <footer>
       <small class="text-muted">Copyright&#169: 2020 読ぽん</small>
     </footer>
-    </div>
     </div>
   </body>
 </html>

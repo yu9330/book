@@ -9,7 +9,18 @@
     <% if signed_in? %>
       <%= link_to "編集", edit_book_path(book) %>
   </p>
-  <p>投稿日:<%= book.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+  <p>投稿日:<%= book.created_at.strftime("%Y-%m-%d %H:%M") %>
+  </p>
+  <p>経過：<%= time_ago_in_words(book.created_at) %>前</p>
+    <% end %>
+<% end %>
+
+<% @books.each do |book| %>
+    <% if book.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+    <p><span>お気に入り数: </span><%= book.favorites.count %></p>
+        <p><%=link_to "お気に入り解除", book_favorite_path(book.id), method: :delete %></p>
+    <% else %>
+        <p><%=link_to "お気に入り登録", book_favorite_path(book.id), method: :post %></p>
     <% end %>
 <% end %>
 

@@ -3,14 +3,17 @@
 <%= render 'index',books: @books %>
 <hr>
 <% if user_signed_in? %>
-  <% if tweet.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-        <p><span>お気に入り解除: </span><%=link_to book.favorites.count, book_favorites_path(book.id), method: :delete %></p>
+  <% @books.each do |book| %>
+    <% if book.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+
+        <p><%=link_to "お気に入り解除", book_favorite_path(book.id), method: :delete %></p>
     <% else %>
-        <p><span>お気に入り登録: </span><%=link_to book.favorites.count, book_favorites_path(book.id), method: :post %></p>
+        <p><%=link_to "お気に入り登録", book_favorite_path(book.id), method: :post %></p>
     <% end %>
   <% else %>
-    <p><span>お気に入り数: </span><%= book.favorites.count %></p>
+  <p><span>お気に入り数: </span><%= book.favorites.count %></p>
   <% end %>
+<% end %>
 <!-- ツイッターに宣伝 -->
 <%= link_to @tweet_url,:onclick=>"window.open(this.href,'hoge', 'height=400, width=600');return false;" do %>
   <div style="background-color:#1da1f2;color:#ffffff;line-height:38px;text-align:center;padding: 0 16px;margin: 15px 10px;border-radius:10px;">

@@ -16,15 +16,17 @@ Rails.application.routes.draw do
 
   get 'users/:id' => "users#show",as: "users_show"
 
-  resources :books do
-    resources :favorites, only: [:create, :destroy]
-  end
-
-  resources :books, except: [:index,:show] do collection do
+resources :books, except: [:index,:show] do
+  collection do
     get "index_unread"
     get "index_read"
-      end
-    end
+  end
+end
+
+
+  resources :books do
+    resource :favorite, only: [:create, :destroy]
+  end
 
   resources :users
 
