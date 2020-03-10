@@ -33,15 +33,15 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <% if !signed_in? %>
-      <p class="nav-item ml-auto"><%= link_to "本一覧",index_read_books_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "ログイン",user_session_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "自分も作ってみる", new_user_registration_path %></p>
+      <p class="nav-item ml-auto"><%= link_to "本一覧",index_read_books_path ,class: "no-underline" %></p>
+      <p class="nav-item ml-auto"><%= link_to "ログイン",user_session_path,class: "no-underline" %></p>
+      <p class="nav-item ml-auto"><%= link_to "自分も作ってみる", new_user_registration_path , class: "no-underline" %></p>
       <% else %>
-     <p class="nav-item ml-auto"><%= link_to "本登録", new_book_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "既読", index_read_books_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "未読",index_unread_books_path %></p>
-      <p class="nav-item ml-auto"><%= link_to "マイページ",users_show_path(current_user.id) %></p>
-      <p class="nav-item ml-auto"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+     <p class="nav-item ml-auto"><%= link_to "本登録", new_book_path, class: "no-underline" %></p>
+      <p class="nav-item ml-auto"><%= link_to "既読", index_read_books_path , class: "no-underline" %></p>
+      <p class="nav-item ml-auto"><%= link_to "未読",index_unread_books_path , class: "no-underline" %></p>
+      <p class="nav-item ml-auto"><%= link_to "マイページ",users_show_path(current_user.id), class: "no-underline" %></p>
+      <p class="nav-item ml-auto"><%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: "no-underline" %></p>
       <% end %>
     </div>
     </nav>
