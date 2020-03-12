@@ -1,11 +1,18 @@
 <div>
 <% @books.each do |book| %>
-  <p>タイトル：<%= book.title%>
+<div class="row">
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <h3>タイトル：<%= book.title%></h3>
     <% if signed_in? %>
+      <button type="button" class="btn btn-light rounded-pill">
       <%= link_to "編集", edit_book_path(book) %>
-    <% end %></p>
+    </button>
+    <% end %>
   <p>投稿日:<%= book.created_at.strftime("%Y-%m-%d %H:%M") %></p>
   <p>経過：<%= time_ago_in_words(book.created_at) %>前</p>
-
+    </div>
+  </div>
+</div>
 <% end %>
 </div>

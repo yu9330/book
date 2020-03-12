@@ -18,9 +18,9 @@
 <% @books.each do |book| %>
   <% if book.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
     <p>お気に入り数:<%= book.favorites.count %></p>
-    <button type="button" class="btn btn-light rounded-pill"><%= link_to "お気に入り解除",book_favorite_path(book.id), method: :delete %>
+    <button type="button" class="btn btn-light rounded-pill"><%= link_to "お気に入り解除",book_favorite_path(book.id), class: "no-underline" ,method: :delete %>
     </button>
-    <button type="button" class="btn btn-light rounded-pill"><%=link_to "お気に入り登録", book_favorite_path(book.id), method: :post %></button>
+    <button type="button" class="btn btn-light rounded-pill"><%=link_to "お気に入り登録", book_favorite_path(book.id), class: "no-underline" ,method: :post %></button>
   <% end %>
 <% end %>
 <p></p>
