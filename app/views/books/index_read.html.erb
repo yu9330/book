@@ -10,7 +10,6 @@
     <% else %>
         <p><%=link_to "お気に入り登録", book_favorite_path(book.id), method: :post %></p>
     <% end %>
-  <% else %>
   <p><span>お気に入り数: </span><%= book.favorites.count %></p>
   <% end %>
 <% end %>
