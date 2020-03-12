@@ -2,8 +2,8 @@
 <% @books.each do |book| %>
 <div class="row">
   <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <h3>タイトル：<%= book.title%></h3>
+    <div class="card img-thumbnail">
+      <h5 class="card-title">タイトル：<%= book.title%></h5>
     <% if signed_in? %>
       <button type="button" class="btn btn-light rounded-pill">
       <%= link_to "編集", edit_book_path(book) %>
