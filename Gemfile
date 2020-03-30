@@ -64,7 +64,7 @@ gem 'devise'
 gem 'ratyrate'
 
 # Boot4
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 # 日本語化
